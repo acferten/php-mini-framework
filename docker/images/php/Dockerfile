@@ -1,6 +1,6 @@
 FROM php:8.1-fpm-alpine
 
-WORKDIR /var/www/public
+WORKDIR /var/www
 
 RUN apk add bash
 RUN apk add curl
@@ -21,6 +21,6 @@ RUN addgroup -g 1000 -S www && \
 
 USER www
 
-COPY --chown=www:www . /var/www/public
+COPY --chown=www:www . /var/www
 
 EXPOSE 9000

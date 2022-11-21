@@ -1,0 +1,22 @@
+{
+    "name": "fjdd/dkgjldfk",
+    "type": "project",
+    "license": "mit",
+    "authors": [
+        {
+            "name": "dfjgkd"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.4 | ^8.0",
+        "illuminate/database": "10.x-dev",
+        "illuminate/events": "10.x-dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Src\\": "core/Src/",
+            "": "app/"
+        }
+    }
+}
