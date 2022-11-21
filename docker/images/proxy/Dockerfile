@@ -7,4 +7,4 @@ ARG WEB_PORT
 RUN sed -i 's#{{ SERVER_NAME }}#'$SERVER_NAME'#g' /etc/nginx/conf.d/default.conf
 RUN sed -i 's#{{ WEB_PORT }}#'$WEB_PORT'#g' /etc/nginx/conf.d/default.conf
 
-COPY . /var/public
+COPY . /var/www/public

@@ -8,12 +8,7 @@ services:
     container_name: php
     restart: unless-stopped
     volumes:
-      - ../app:/var/app
-      - ../config:/var/config
-      - ../core:/var/core
-      - ../public:/var/public
-      - ../routes:/var/routes
-      - ../views:/var/views
+      - ../www:/var/www
 
   #Image for proxy server
   proxy:
@@ -28,7 +23,7 @@ services:
     depends_on:
       - web
     volumes:
-      - ../public:/var/public
+      - ../www/public:/var/www/public
       - ./images/proxy:/etc/nginx/conf.d/
 
   adminer:
