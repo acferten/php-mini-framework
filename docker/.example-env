@@ -1,9 +1,0 @@
-USER_LOGIN=postgres
-
-#DB settings
-DB_NAME=db
-USER_DB_PASSWORD=12345
-
-#Proxy settings
-WEB_PORT=80
-SERVER_NAME=localhost
