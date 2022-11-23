@@ -39,7 +39,9 @@ class Api
         if (User::create($request->all())) {
             (new View())->toJSON(['message' => "Пользователь создан"]);
         }
+    }
 
-
+    public function login(Request $request){
+//        app()->auth::
     }
 }
