@@ -41,7 +41,10 @@ class Api
         }
     }
 
-    public function login(Request $request){
-//        app()->auth::
+    public function login(Request $request)
+    {
+        if(app()->auth->attempt($request->all())){
+            app()->auth->generateToken();
+        }
     }
 }
