@@ -1,8 +1,8 @@
 <?php
 return [
-    'driver' => 'postgresql',
-    'host' => 'localhost',
-    'database' => 'db',
+    'driver' => 'pgsql',
+    'host' => 'db',
+    'database' => 'postgres',
     'username' => 'postgres',
     'password' => 'QWEasd123@',
     'charset' => 'utf8',
