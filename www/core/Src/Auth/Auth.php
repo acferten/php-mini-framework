@@ -4,6 +4,7 @@ namespace Src\Auth;
 
 use Src\Session;
 
+
 class Auth
 {
     //Свойство для хранения любого класса, реализующего интерфейс IdentityInterface
@@ -67,4 +68,37 @@ class Auth
         return true;
     }
 
+    public function hasValidCredentials(): bool
+    {
+        // TODO: написать валидацию
+    }
+
+    public function generateToken()
+    {
+        $secretKey = 'bGS6lzFqvvSQ8ALbOxatm7/Vk7mLQyzqaS34Q4oR1ew=';
+        $tokenId = base64_encode(random_bytes(16));
+        $issuedAt = new \DateTimeImmutable();
+        $expire = $issuedAt->modify('+6 minutes')->getTimestamp();      // Add 60 seconds
+        $serverName = "localhost";
+        $username = "username";                                           // Retrieved from filtered POST data
+
+        // Create the token as an array
+        $data = [
+            'iat' => $issuedAt->getTimestamp(),    // Issued at: time when the token was generated
+            'jti' => $tokenId,                     // Json Token Id: an unique identifier for the token
+            'iss' => $serverName,                  // Issuer
+            'nbf' => $issuedAt->getTimestamp(),    // Not before
+            'exp' => $expire,                      // Expire
+            'data' => [                             // Data related to the signer user
+                'userName' => $username,            // User name
+            ]
+        ];
+
+        // Encode the array to a JWT string.
+        echo \Firebase\JWT\JWT::encode(
+            $data,      //Data to be encoded in the JWT
+            $secretKey, // The signing key
+            'HS512'     // Algorithm used to sign the token
+        );
+    }
 }
